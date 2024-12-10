@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-light: #f3e8d8;
+            --text-light: #4a4a4a;
+            --bg-dark: #2c2c2c;
+            --text-dark: #ffffff;
+            --accent: #d4a373;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-light);
+            overflow-x: hidden;
+            text-align: center;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        body.dark-mode {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+
+        .slide {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3em;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .content {
+            font-size: 1.1em;
+            margin: 20px;
+            line-height: 1.8;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .details-table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 80%;
+            max-width: 600px;
+            font-size: 1.1em;
+        }
+
+        .details-table th,
+        .details-table td {
+            padding: 10px 15px;
+            text-align: left;
+            border: 1px solid var(--accent);
+        }
+
+        .details-table th {
+            background-color: var(--bg-light);
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .details-table td {
+            background-color: #fffaf3;
+        }
+
+        body.dark-mode .details-table th {
+            background-color: #3b3b3b;
+            color: var(--accent);
+        }
+
+        body.dark-mode .details-table td {
+            background-color: #444;
+        }
+
+        .button {
+            text-decoration: none;
+            background: var(--accent);
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            font-weight: 600;
+            margin: 0 10px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .button:hover {
+            background: #b48b5d;
+            transform: scale(1.1);
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: var(--text-light);
+        }
+
+        body.dark-mode footer {
+            color: var(--text-dark);
+        }
+
+        .map-container {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 600px;
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        iframe {
+            display: block;
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 10px;
+            border: none;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+            z-index: 1000; /* Ensure it appears above other content */
+        }
+
+        .theme-toggle:hover {
+            background: #b48b5d;
+        }
+    </style>
+    <script>
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            const slides = document.querySelectorAll('.slide');
+            if (currentSlide < slides.length - 1) {
+                showSlide(currentSlide + 1);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showSlide(0); // Show the first slide initially
+        });
+    </script>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Mode</button>
+
+    <!-- Slide 1 -->
+    <div class="slide active">
+        <div class="title">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+        <div class="content">
+            Assalamu'alaikum Warahmatullahi Wabarakatuh,<br>
+            Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami.
+        </div>
+        <div class="button-container">
+            <button class="button" onclick="nextSlide()">Lanjut</button>
+        </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+        <div class="title">Ayat Cinta</div>
+        <div class="content">
+            "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan hidup dari jenismu sendiri supaya kamu merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang." (QS. Ar-Rum: 21)
+        </div>
+        <div class="button-container">
+            <button class="button" onclick="prevSlide()">Kembali</button>
+            <button class="button" onclick="nextSlide()">Lanjut</button>
+        </div>
+    </div>
+
+    <!-- Slide 3 -->
+    
+    <!-- Slide 3 -->
+    <div class="slide">
+        <div class="title">Memperkenalkan</div>
+        <div class="content">
+            <!-- Gambar pasangan dengan sentuhan mewah -->
+            <div style="margin: 0 auto; max-width: 300px; border: 5px solid var(--accent); border-radius: 15px; overflow: hidden; box-shadow: 0 8px 16px rgba(0,0,0,0.2);">
+                <img src="GP3_9132.png" alt="Pasangan Pengantin" style="width: 100%; display: block;">
+            </div>
+            <div style="margin-top: 20px; font-size: 1.2em; font-weight: bold; color: var(--accent);">
+                Indra Prajoko, S.Pd., M.Pd & Dwi Wulan Apriliana
+            </div>
+            <div style="margin-top: 10px; font-size: 1em; color: var(--text-light); line-height: 1.6;">
+                Dengan penuh rasa syukur, kami yang berbahagia<br>memohon doa restu dari Bapak/Ibu/Saudara/i.
+            </div>
+        </div>
+        <div class="button-container">
+            <button class="button" onclick="prevSlide()">Kembali</button>
+            <button class="button" onclick="nextSlide()">Lanjut</button>
+        </div>
+    </div>
+
+
+
+    <!-- Slide 4 -->
+    <div class="slide">
+        <div class="title">Waktu dan Tempat</div>
+        <div class="content">
+            <table class="details-table">
+                <tr>
+                    <th>Hari, Tanggal</th>
+                    <td>Rabu Legi, 25 Desember 2024</td>
+                </tr>
+                <tr>
+                    <th>Waktu</th>
+                    <td>10:00 WIB - Selesai</td>
+                </tr>
+                <tr>
+                    <th>Tempat</th>
+                    <td>Dusun IX, Rb 2 D1, Rukti Basuki Kec.Rumbia</td>
+                </tr>
+            </table>
+        </div>
+        <div class="button-container">
+            <button class="button" onclick="prevSlide()">Kembali</button>
+            <button class="button" onclick="nextSlide()">Lanjut</button>
+        </div>
+    </div>
+
+    <!-- Slide 5 -->
+    <div class="slide">
+        <div class="title">Peta Lokasi</div>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d305.7667547878593!2d105.54130853423804!3d-4.780562161922488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e3f65ee0d882ceb%3A0xfddc07d97c17f1c0!2sLj%20sport%20Apparel%20rumbia!5e1!3m2!1sid!2sid!4v1733800991557!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <a href="https://maps.app.goo.gl/QYCuDC7b4acHhvUVA" target="_blank" class="button">Lihat di Google Maps</a>
+        <div class="button-container">
+            <button class="button" onclick="prevSlide()">Kembali</button>
+            <button class="button" onclick="nextSlide()">Lanjut</button>
+        </div>
+    </div>
+
+        <!-- Slide Tambahan -->
+        <div class="slide">
+            <div class="title">Doa dan Dukungan</div>
+            <div class="content">
+                Bagi keluarga dan sahabat yang berkenan memberikan tanda kasih, kami sediakan informasi berikut:
+                <table class="details-table">
+                    <tr>
+                        <th>Nama Pemilik Rekening</th>
+                        <td>Indra Prajoko</td>
+                    </tr>
+                    <tr>
+                        <th>Bank</th>
+                        <td>BRI (Bank Rakyat Indonesia)</td>
+                    </tr>
+                </table>
+                <div style="margin-top: 20px;">
+                    <p>QR Code untuk Nomor Rekening:</p>
+                    <div style="margin: 0 auto; max-width: 300px; border: 5px solid var(--accent); border-radius: 15px; overflow: hidden; box-shadow: 0 8px 16px rgba(0,0,0,0.2);">
+                        <img src="Indra_Prajoko_BRI.png" alt="Pasangan Pengantin" style="width: 100%; display: block;">
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <button class="button" onclick="prevSlide()">Kembali</button>
+                <button class="button" onclick="nextSlide()">Lanjut</button>
+            </div>
+        </div>
+    
+
+    <!-- Slide 6 -->
+    <div class="slide">
+        <div class="title">Penutup</div>
+        <div class="content">
+            Wassalamu'alaikum Warahmatullahi Wabarakatuh.<br>
+            Kehadiran Anda akan membawa kebahagiaan bagi kami. Terima kasih atas doa restunya.
+        </div>
+        <div class="button-container">
+            <button class="button" onclick="prevSlide()">Kembali</button>
+        </div>
+    </div>
+</body>
+</html>
